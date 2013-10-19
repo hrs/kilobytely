@@ -1,0 +1,10 @@
+%html
+  %head
+    %title Kilobytely: the URL lengthener
+  %body
+    %form
+      %input{type: 'text', name: 'url'}
+      %input{type: 'submit', id: 'submit', value: 'Lengthen'}
+    - if encoded_url
+      %p{id: 'url_container'}
+        %a{href: encoded_url}= encoded_url

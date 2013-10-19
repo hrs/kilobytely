@@ -13,18 +13,15 @@ describe KilobytelyServer do
   let (:url) { 'http://harryrschwartz.com' }
   let (:encoded_url) { encode(url) }
 
-  describe 'encoding a URL' do
-    it 'reads the plaintext URL, returning its encoded value' do
-      post '/encode', :url => url
-
-      expect(last_response).to be_ok
-      expect(last_response.body).to eq encoded_url
-    end
-  end
-
   describe 'getting the front page' do
     it 'retrieves a page' do
       get '/'
+
+      expect(last_response).to be_ok
+    end
+
+    it 'retrieves a page with an encoded url' do
+      get '/', url: encoded_url
 
       expect(last_response).to be_ok
     end
