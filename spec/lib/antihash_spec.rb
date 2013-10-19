@@ -11,7 +11,7 @@ describe AntiHash do
       base_36_chars = ('0'..'9').to_a + ('a'..'z').to_a
 
       base_36_str.each_char do |c|
-        base_36_chars.should include c
+        expect(base_36_chars).to include c
       end
     end
   end

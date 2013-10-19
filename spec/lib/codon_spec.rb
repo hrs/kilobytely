@@ -6,15 +6,15 @@ describe Codon do
   it 'translates a base-36 character to a 6-character codon' do
     codon = char_to_codon('c')
 
-    codon.to_s.size.should eq 7
-    codon.should eq 'g5iol0q'
+    expect(codon.to_s.size).to eq 7
+    expect(codon).to eq 'g5iol0q'
   end
 
   it 'translates integers' do
     codon = char_to_codon('3')
 
-    codon.to_s.size.should eq 7
-    codon.should eq '7w9fcrh'
+    expect(codon.to_s.size).to eq 7
+    expect(codon).to eq '7w9fcrh'
   end
 
   it 'translates back from codons' do
