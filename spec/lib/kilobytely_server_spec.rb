@@ -22,6 +22,14 @@ describe KilobytelyServer do
     end
   end
 
+  describe 'getting the front page' do
+    it 'retrieves a page' do
+      get '/'
+
+      expect(last_response).to be_ok
+    end
+  end
+
   describe 'decoding a URL' do
     it 'reads the encoded URL as a parameter, redirecting to the right place' do
       get "/#{encoded_url}"
