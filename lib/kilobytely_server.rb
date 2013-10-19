@@ -3,7 +3,7 @@ require 'sinatra'
 class KilobytelyServer < Sinatra::Base
   include AntiHash
 
-  URL = "http://kilobytely.com/"
+  URL = "http://kilobytely.herokuapp.com/"
 
   set :root, File.join(File.dirname(__FILE__), '..')
 

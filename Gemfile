@@ -1,4 +1,6 @@
-source "http://rubygems.org"
+source 'http://rubygems.org'
+
+ruby '2.0.0'
 
 gem 'haml'
 gem 'sinatra'
