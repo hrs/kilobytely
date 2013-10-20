@@ -30,7 +30,7 @@ class KilobytelyServer < Sinatra::Base
   end
 
   get '/' do
-    encoded_url = encode_url_to_kilobytely(params[:url])
+    encoded_url = params[:url] && encode_url_to_kilobytely(params[:url])
     haml :index, locals: { encoded_url: encoded_url }
   end
 
