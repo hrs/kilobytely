@@ -1,10 +1,16 @@
 %html
   %head
     %title Kilobytely: the URL lengthener
+    %link{rel: 'stylesheet', type: 'text/css', href: 'style.css', media: 'screen'}
   %body
-    %form
-      %input{type: 'text', name: 'url'}
-      %input{type: 'submit', id: 'submit', value: 'Lengthen'}
-    - if encoded_url
-      %p{id: 'url_container'}
-        %a{href: encoded_url}= encoded_url
+    %div#container
+      %div#banner
+        %h1 Kilobytely
+        %p Because short URLs are for suckers.
+
+      %form
+        %input{placeholder: 'google.com', type: 'text', name: 'url'}
+        %input{type: 'submit', id: 'submit', value: 'Lengthen'}
+      - if encoded_url
+        %p#url_container
+          %a{href: encoded_url}= encoded_url
