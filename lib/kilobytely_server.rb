@@ -1,14 +1,24 @@
+require 'haml'
 require 'sinatra'
 
 class KilobytelyServer < Sinatra::Base
   include AntiHash
 
-  URL = "http://kilobytely.herokuapp.com/"
+  URL = 'http://kilobytely.herokuapp.com/'
 
   set :root, File.join(File.dirname(__FILE__), '..')
 
   helpers do
+    def prefix_http_if_needed(url)
+      if url =~ /:\/\//
+        url
+      else
+        'http://' + url
+      end
+    end
+
     def encode_url_to_kilobytely(url)
+      url = prefix_http_if_needed(url)
       if url && !url.empty?
         URL + encode(url)
       end
@@ -16,7 +26,7 @@ class KilobytelyServer < Sinatra::Base
   end
 
   error 500 do
-    "Oh no, an internal server error!: #{env['sinatra.error'].class}: #{env['sinatra.error'].message}"
+    'Oh no, an internal server error! What have you done?!'
   end
 
   get '/' do
