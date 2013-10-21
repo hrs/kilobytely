@@ -9,7 +9,7 @@
         %p Because short URLs are for suckers.
 
       %form
-        %input{placeholder: 'google.com', type: 'text', name: 'url'}
+        %input{placeholder: 'http://google.com', type: 'url', name: 'url'}
         %input{type: 'submit', id: 'submit', value: 'Lengthen'}
       - if encoded_url
         %p#url_container
