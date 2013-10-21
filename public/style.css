@@ -2,6 +2,10 @@ body {
     font-family: Helvetica, sans;
 }
 
+a {
+    color: red;
+}
+
 #banner {
     text-align: center;
     margin-bottom: 40px;
@@ -18,4 +22,14 @@ body {
     padding: 10px;
     font-family: Consolas, Menlo, Courier, monospace;
     word-wrap: break-word;
+}
+
+footer {
+    width: 700px;
+    position: absolute;
+    bottom: 0;
+    font-size: 0.8em;
+    text-align: center;
+    border-top: thin #ccc solid;
+    color: #ccc;
 }

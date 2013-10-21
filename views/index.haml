@@ -14,3 +14,15 @@
       - if encoded_url
         %p#url_container
           %a{href: encoded_url}= encoded_url
+
+      %footer
+        %p
+          &copy;
+          = Time.now.year
+          %a{href: 'http://harryrschwartz.com'} Harry R. Schwartz
+          | Code for this thing is on
+          %a{href: 'http://github.com/hrs/kilobytely'} Github
+        %p
+          Let the record show that I have nothing but &hearts; for the fine folks over at
+          %a{href: 'http://bitly.com'} bitly
+          \=)
