@@ -22,4 +22,9 @@ module Codon
     # can be derived from the first character of the codon
     ((codon.chars.first.to_i(BASE) - CHAR_OFFSET) % BASE).to_s(BASE)
   end
+
+  def valid_codon?(codon)
+    codon.size == SIZE &&
+      codon == char_to_codon(codon_to_char(codon))
+  end
 end

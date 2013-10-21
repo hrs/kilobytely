@@ -33,4 +33,15 @@ describe AntiHash do
       expect(decode(encode('foo'))).to eq 'foo'
     end
   end
+
+  describe :valid? do
+    it 'recognizes valid input' do
+      # 'foo'
+      expect(valid?('0pe3sh6vk9ync1qf4ti7wlazod2rg5uj8xmb0pe3sh')).to be_true
+    end
+
+    it 'recognizes invalid input' do
+      expect(valid?('0pe3sh6vk9ync1qf4ti8wlazod2rg5uj8xmb0pe3sh')).to be_false
+    end
+  end
 end

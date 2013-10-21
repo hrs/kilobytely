@@ -16,8 +16,16 @@ module AntiHash
   end
 
   def decode(obfuscated_url)
-    codons = obfuscated_url.scan(/.{#{Codon::SIZE}}/)
-    encoded_url = codons.map { |c| codon_to_char(c) }.join
+    encoded_url = codons(obfuscated_url).map { |c| codon_to_char(c) }.join
     from_base_36(encoded_url)
+  end
+
+  def codons(obfuscated_url)
+    obfuscated_url.scan(/.{#{Codon::SIZE}}/)
+  end
+
+  def valid?(obfuscated_url)
+    obfuscated_url.size % Codon::SIZE == 0 &&
+      codons(obfuscated_url).all? { |c| valid_codon?(c) }
   end
 end

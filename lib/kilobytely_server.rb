@@ -23,6 +23,10 @@ class KilobytelyServer < Sinatra::Base
     end
   end
 
+  error 400 do
+    'That URL looks invalid. Sorry. =('
+  end
+
   error 500 do
     'Oh no, an internal server error! What have you done?!'
   end
@@ -33,6 +37,10 @@ class KilobytelyServer < Sinatra::Base
   end
 
   get '/:encoded_url' do
-    redirect decode(params[:encoded_url])
+    if valid?(params[:encoded_url])
+      redirect decode(params[:encoded_url])
+    else
+      400
+    end
   end
 end

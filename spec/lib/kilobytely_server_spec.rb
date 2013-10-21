@@ -34,5 +34,11 @@ describe KilobytelyServer do
       expect(last_response.status).to eq 302
       expect(last_response.headers['Location']).to eq url
     end
+
+    it 'returns a 400 if the encoded URL looks invalid' do
+      get "/#{encoded_url.gsub('a', 'b')}"
+
+      expect(last_response.status).to eq 400
+    end
   end
 end
