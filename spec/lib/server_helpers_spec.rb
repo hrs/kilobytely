@@ -20,7 +20,7 @@ describe ServerHelpers do
     end
 
     it 'encodes a url correctly' do
-      expect(encode_url_to_kilobytely('foo.com')).to eq "http://www.kilobytely.com/#{encode('http://foo.com')}"
+      expect(encode_url_to_kilobytely('foo.com')).to eq "http://kilobytely.herokuapp.com/#{encode('http://foo.com')}"
     end
   end
 end
