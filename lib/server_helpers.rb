@@ -1,7 +1,7 @@
 module ServerHelpers
   include AntiHash
 
-  SERVER_URL = 'http://kilobytely.herokuapp.com/'
+  SERVER_URL = 'http://kilobytely.com/'
 
   def prefix_http_if_needed(url)
     if url =~ /:\/\//

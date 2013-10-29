@@ -2,4 +2,4 @@
 
 A URL lengthener, because that's something the world needs.
 
-Currently available at [kilobytely.herokuapp.com](http://kilobytely.herokuapp.com).
+Currently available at [kilobytely.com](http://kilobytely.com).
