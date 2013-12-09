@@ -2,7 +2,7 @@ require 'haml'
 require 'sinatra'
 
 class KilobytelyServer < Sinatra::Base
-  include AntiHash
+  include SymmetricHash
 
   configure do
     set :root, File.join(File.dirname(__FILE__), '..')

@@ -4,7 +4,7 @@ set :environment, :test
 
 describe KilobytelyServer do
   include Rack::Test::Methods
-  include AntiHash
+  include SymmetricHash
 
   def app
     KilobytelyServer

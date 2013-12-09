@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe AntiHash do
-  include AntiHash
+describe SymmetricHash do
+  include SymmetricHash
 
   let (:url) { 'http://harryrschwartz.com' }
 

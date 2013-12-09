@@ -1,4 +1,4 @@
-module AntiHash
+module SymmetricHash
   include Codon
 
   def to_base_36(str)
