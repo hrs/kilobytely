@@ -1,5 +1,5 @@
 module SymmetricHash
-  include Codon
+  include CharacterHash
 
   def to_base_36(str)
     str.unpack('H*').first.to_i(16).to_s(36)
@@ -10,22 +10,20 @@ module SymmetricHash
   end
 
   def encode(url)
-    to_base_36(url).chars.map {|c|
-      char_to_codon(c)
-    }.join
+    to_base_36(url).chars.map { |c| hash(c) }.join
   end
 
   def decode(obfuscated_url)
-    encoded_url = codons(obfuscated_url).map { |c| codon_to_char(c) }.join
+    encoded_url = hashed_chars(obfuscated_url).map { |c| unhash(c) }.join
     from_base_36(encoded_url)
   end
 
-  def codons(obfuscated_url)
-    obfuscated_url.scan(/.{#{Codon::SIZE}}/)
+  def valid?(obfuscated_url)
+    obfuscated_url.size % CharacterHash::SIZE == 0 &&
+      hashed_chars(obfuscated_url).all? { |c| valid_hash?(c) }
   end
 
-  def valid?(obfuscated_url)
-    obfuscated_url.size % Codon::SIZE == 0 &&
-      codons(obfuscated_url).all? { |c| valid_codon?(c) }
+  def hashed_chars(obfuscated_url)
+    obfuscated_url.scan(/.{#{CharacterHash::SIZE}}/)
   end
 end
