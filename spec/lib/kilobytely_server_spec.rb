@@ -10,8 +10,8 @@ describe KilobytelyServer do
     KilobytelyServer
   end
 
-  let (:url) { 'http://harryrschwartz.com' }
-  let (:encoded_url) { encode(url) }
+  let (:sample_url) { 'http://harryrschwartz.com' }
+  let (:encoded_url) { encode(sample_url) }
 
   describe 'getting the front page' do
     it 'retrieves a page' do
@@ -32,7 +32,7 @@ describe KilobytelyServer do
       get "/#{encoded_url}"
 
       expect(last_response.status).to eq 302
-      expect(last_response.headers['Location']).to eq url
+      expect(last_response.headers['Location']).to eq sample_url
     end
 
     it 'returns a 400 if the encoded URL looks invalid' do

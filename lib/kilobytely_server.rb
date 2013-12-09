@@ -3,7 +3,6 @@ require 'sinatra'
 
 class KilobytelyServer < Sinatra::Base
   include AntiHash
-  include ServerHelpers
 
   configure do
     set :root, File.join(File.dirname(__FILE__), '..')
@@ -18,7 +17,7 @@ class KilobytelyServer < Sinatra::Base
   end
 
   get '/' do
-    encoded_url = params[:url] && encode_url_to_kilobytely(params[:url])
+    encoded_url = params[:url] && url + encode(params[:url])
     haml :index, locals: { encoded_url: encoded_url }
   end
 
