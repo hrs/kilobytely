@@ -1,16 +1,16 @@
-source 'http://rubygems.org'
+source "http://rubygems.org"
 
-gem 'haml'
-gem 'sinatra'
+gem "haml"
+gem "sinatra"
 
 group :production do
-  gem 'unicorn'
+  gem "unicorn"
 end
 
 group :development, :test do
-  gem 'rake'
-  gem 'rspec'
-  gem 'rack-test'
-  gem 'simplecov'
-  gem 'shotgun'
+  gem "rake"
+  gem "rspec"
+  gem "rack-test"
+  gem "simplecov"
+  gem "shotgun"
 end

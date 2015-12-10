@@ -6,11 +6,11 @@ module CharacterHash
   BASE = 36
 
   def hash(char)
-    (1..SIZE).map { |mult|
+    (1..SIZE).map do |mult|
       offset = mult * CHAR_OFFSET
       encoded_char = (offset + char.to_i(BASE)) % BASE
       encoded_char.to_s(BASE)
-    }.join
+    end.join
   end
 
   def unhash(hashed_char)

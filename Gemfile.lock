@@ -49,3 +49,6 @@ DEPENDENCIES
   simplecov
   sinatra
   unicorn
+
+BUNDLED WITH
+   1.10.0.rc

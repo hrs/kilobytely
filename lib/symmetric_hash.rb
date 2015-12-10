@@ -2,11 +2,11 @@ module SymmetricHash
   include CharacterHash
 
   def to_base_36(str)
-    str.unpack('H*').first.to_i(16).to_s(36)
+    str.unpack("H*").first.to_i(16).to_s(36)
   end
 
   def from_base_36(str)
-    [str.to_i(36).to_s(16)].pack('H*')
+    [str.to_i(36).to_s(16)].pack("H*")
   end
 
   def encode(url)

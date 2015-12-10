@@ -1,8 +1,10 @@
-task :default => [:test]
+task default: [:spec]
 
-task :test do
-  cmd = 'rspec spec'
+task :spec do
+  cmd = "rspec spec"
   puts "Starting to run `#{cmd}`..."
   system("export DISPLAY=:99.0 && bundle exec #{cmd}")
-  raise "`#{cmd}` failed!" unless $?.exitstatus == 0
+  if $?.exitstatus != 0
+    raise "`#{cmd}` failed!"
+  end
 end
