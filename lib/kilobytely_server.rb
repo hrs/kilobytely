@@ -2,8 +2,6 @@ require "haml"
 require "sinatra"
 
 class KilobytelyServer < Sinatra::Base
-  include SymmetricHash
-
   configure do
     set :root, File.join(File.dirname(__FILE__), "..")
   end
@@ -17,13 +15,14 @@ class KilobytelyServer < Sinatra::Base
   end
 
   get "/" do
-    encoded_url = params[:url] && url + encode(params[:url])
+    encoded_url = params[:url] && url + Encoder.new(params[:url]).encode
     haml :index, locals: { encoded_url: encoded_url }
   end
 
   get "/:encoded_url" do
-    if valid?(params[:encoded_url])
-      redirect decode(params[:encoded_url])
+    url_encoder = Encoder.new(params[:encoded_url])
+    if url_encoder.valid?
+      redirect url_encoder.decode
     else
       400
     end

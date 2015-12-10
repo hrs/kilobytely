@@ -2,7 +2,6 @@ require "spec_helper"
 
 describe KilobytelyServer do
   include Rack::Test::Methods
-  include SymmetricHash
 
   def app
     KilobytelyServer
@@ -13,7 +12,7 @@ describe KilobytelyServer do
   end
 
   def encoded_url
-    encode(sample_url)
+    Encoder.new(sample_url).encode
   end
 
   describe "getting the front page" do
