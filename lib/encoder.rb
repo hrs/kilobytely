@@ -1,22 +1,20 @@
 class Encoder
-  include CharacterHash
-
   def initialize(string)
     @string = string
   end
 
   def encode
-    to_base_36(string).chars.map { |c| hash(c) }.join
+    to_base_36(string).chars.map { |c| CharacterEncoder.new(c).hash }.join
   end
 
   def decode
-    encoded_url = hashed_chars(string).map { |c| unhash(c) }.join
+    encoded_url = hashed_chars(string).map { |c| CharacterEncoder.new(c).unhash }.join
     from_base_36(encoded_url)
   end
 
   def valid?
-    string.size % CharacterHash::SIZE == 0 &&
-      hashed_chars(string).all? { |c| valid_hash?(c) }
+    string.size % CharacterEncoder::SIZE == 0 &&
+      hashed_chars(string).all? { |c| CharacterEncoder.new(c).valid? }
   end
 
   private
@@ -32,6 +30,6 @@ class Encoder
   end
 
   def hashed_chars(obfuscated_url)
-    obfuscated_url.scan(/.{#{CharacterHash::SIZE}}/)
+    obfuscated_url.scan(/.{#{CharacterEncoder::SIZE}}/)
   end
 end
