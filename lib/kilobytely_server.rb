@@ -15,8 +15,7 @@ class KilobytelyServer < Sinatra::Base
   end
 
   get "/" do
-    encoded_url = params[:url] && url + Encoder.new(params[:url]).encode
-    haml :index, locals: { encoded_url: encoded_url }
+    haml :index, locals: { encoded_url: encoded_url(params[:url]) }
   end
 
   get "/:encoded_url" do
@@ -25,6 +24,14 @@ class KilobytelyServer < Sinatra::Base
       redirect url_encoder.decode
     else
       400
+    end
+  end
+
+  private
+
+  def encoded_url(url_param)
+    if url_param
+      url + Encoder.new(url_param).encode
     end
   end
 end
