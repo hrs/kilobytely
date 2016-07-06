@@ -1,4 +1,3 @@
-require "haml"
 require "sinatra"
 
 class KilobytelyServer < Sinatra::Base
@@ -15,7 +14,7 @@ class KilobytelyServer < Sinatra::Base
   end
 
   get "/" do
-    haml :index, locals: { encoded_url: encoded_url(params[:url]) }
+    erb :index, locals: { encoded_url: encoded_url(params[:url]) }
   end
 
   get "/:encoded_url" do

@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Kilobytely: the URL lengthener</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+  <body>
+    <div id="container">
+      <div id="banner">
+        <h1>Kilobytely</h1>
+        <p>Because short URLs are for suckers.</p>
+      </div>
+
+      <form>
+        <input placeholder="http://google.com", type="url", name="url", required="true">
+        <input type="submit", id="submit", value="Lengthen">
+        <% if encoded_url %>
+          <p id="url_container">
+            <a href=<%= encoded_url %>><%= encoded_url %></a>
+          </p>
+        <% end %>
+      </form>
+
+      <footer>
+        <p>
+          &copy;<%= Time.now.year %> <a href="http://harryrschwartz.com">Harry R. Schwartz
+          | Code for this thing is on <a href="http://github.com/hrs/kilobytely">Github</a></p>.
+        </p>
+        <p>
+          Let the record show that I have nothing but &hearts; for the fine folks over at <a href="http://bitly.com">bitly</a> =)
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

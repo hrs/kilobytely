@@ -3,8 +3,6 @@ GEM
   specs:
     diff-lcs (1.2.5)
     docile (1.1.5)
-    haml (4.0.7)
-      tilt
     json (1.8.3)
     kgio (2.10.0)
     rack (1.6.4)
@@ -48,7 +46,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  haml
   rack-test
   rake
   rspec
