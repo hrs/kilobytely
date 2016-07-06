@@ -1,38 +1,8 @@
-body {
-    font-family: Helvetica, sans;
-}
-
-a {
-    color: red;
-}
-
-#banner {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-#container {
-    width: 700px;
-    margin: 0 auto;
-    overflow: auto;
-}
-
-#url_container {
+.url_container {
     background-color: #eee;
     border-radius: 5px;
     padding: 10px;
     font-family: Consolas, Menlo, Courier, monospace;
     word-wrap: break-word;
-    margin-bottom: 100px;
-}
-
-footer {
-    width: 700px;
-    position: fixed;
-    bottom: 0;
-    font-size: 0.8em;
-    text-align: center;
-    background-color: #eee;
-    border-radius: 5px;
-    color: #bbb;
+    margin: 20px 0;
 }
