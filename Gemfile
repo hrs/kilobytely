@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-ruby "2.5.1"
+ruby File.read(".ruby-version").strip
 
 gem "sinatra"
 
@@ -9,9 +9,9 @@ group :production do
 end
 
 group :development, :test do
+  gem "rack-test"
   gem "rake"
   gem "rspec"
-  gem "rack-test"
-  gem "simplecov"
   gem "shotgun"
+  gem "simplecov"
 end
