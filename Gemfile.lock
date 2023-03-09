@@ -6,7 +6,7 @@ GEM
     kgio (2.11.4)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
-    rack (2.2.4)
+    rack (2.2.6.3)
     rack-protection (3.0.3)
       rack
     rack-test (2.0.2)
